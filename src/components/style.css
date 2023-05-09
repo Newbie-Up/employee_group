@@ -1,0 +1,17 @@
+.group {
+	width: 300px;
+	height: 300px;
+	padding: 10px;
+}
+
+.group:nth-child(1) {
+	background-color: aqua;
+}
+
+.group:nth-child(2) {
+	background-color: rgb(233, 242, 128);
+}
+
+.group:nth-child(3) {
+	background-color: rgb(59, 236, 183);
+}
