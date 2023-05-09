@@ -1,10 +1,8 @@
-import React, { useContext } from 'react'
-import { userContext } from '../App'
+import React from 'react'
+
 import './style.css'
 
 const Group = ({ users, groupName }) => {
-	const user = useContext(userContext)
-	console.log(user)
 	return (
 		<div className='group'>
 			<div className='title'>{groupName}</div>
