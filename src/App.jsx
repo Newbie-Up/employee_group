@@ -1,6 +1,8 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, createContext } from 'react'
 import './App.css'
 import Group from './components/Group'
+
+export const userContext = createContext({})
 
 const data = {
 	users: [
@@ -20,7 +22,6 @@ function App() {
 
 	const filteruser = useCallback(groupIndex => {
 		return userData.users.filter(user => {
-
 			//check if current group exist in user's group array
 			const bool = user.group.some(group => group.includes(userData.groups[groupIndex]))
 
@@ -30,11 +31,13 @@ function App() {
 	}, [])
 
 	return (
-		<div className='container'>
-			{userData.groups.map((_, i) => (
-				<Group key={i} users={filteruser(i)} />
-			))}
-		</div>
+		<userContext.Provider value={data}>
+			<div className='container'>
+				{userData.groups.map((group, i) => (
+					<Group key={i} users={filteruser(i)} groupName={group} />
+				))}
+			</div>
+		</userContext.Provider>
 	)
 }
 
